@@ -4,10 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍕 피자 시뮬레이터 🍕</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/EightBit.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/DOSGothic.min.css" rel="stylesheet">
     <style>
         body {
@@ -30,115 +26,34 @@
             width: 90%;
             border: 5px solid #ffcc00;
         }
-        h1 {
-            font-family: 'EightBit', 'Press Start 2P', cursive;
+        h1, h2 {
+            font-family: sans-serif;
             color: #e74c3c;
             text-align: center;
-            margin-bottom: 25px;
-            font-size: 1.5em;
             text-shadow: 2px 2px #ffcc00;
         }
-        p {
-            font-size: 0.8em;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        h2 {
-            font-family: 'EightBit', 'Press Start 2P', cursive;
-            color: #f39c12;
-            border-bottom: 3px solid #e74c3c;
-            padding-bottom: 8px;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            font-size: 1em;
-            text-shadow: 1px 1px #8b0000;
-        }
-        .dough-selection, .topping-grid, .special-topping-grid {
-            margin-bottom: 20px;
-        }
-        .dough-selection label {
-            font-size: 0.9em;
-            margin-right: 20px;
-        }
-        .topping-grid, .special-topping-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px 30px;
-        }
-        .topping-item, .special-item {
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            border-radius: 5px;
-            border: 2px solid #666;
-        }
-        .topping-item {
-            background-color: #444;
-            justify-content: space-between;
-        }
-        .special-item {
-            background-color: #e74c3c;
-            justify-content: flex-start;
-            border: 2px solid #8b0000;
-        }
-        .topping-item label {
-            flex-grow: 1;
-        }
-        .special-item label {
-            margin-left: 10px;
-        }
-        input[type="number"] {
-            width: 40px;
-            border: 2px solid #ffcc00;
-            background-color: #222;
-            color: #eee;
-            border-radius: 3px;
-            padding: 5px;
-            text-align: center;
-            font-family: 'Press Start 2P', cursive;
-        }
+        h1 { font-size: 1.5em; margin-bottom: 25px; }
+        h2 { font-size: 1em; margin-top: 30px; margin-bottom: 20px; border-bottom: 3px solid #e74c3c; padding-bottom: 8px; }
+        p { font-size: 0.8em; text-align: center; margin-bottom: 30px; }
+        .dough-selection, .topping-grid, .special-topping-grid { margin-bottom: 20px; }
+        .dough-selection label { font-size: 0.9em; margin-right: 20px; }
+        .topping-grid, .special-topping-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 30px; }
+        .topping-item, .special-item { display: flex; align-items: center; padding: 10px 15px; border-radius: 5px; border: 2px solid #666; }
+        .topping-item { background-color: #444; justify-content: space-between; }
+        .special-item { background-color: #e74c3c; justify-content: flex-start; border: 2px solid #8b0000; }
+        .topping-item label { flex-grow: 1; }
+        .special-item label { margin-left: 10px; }
+        input[type="number"] { width: 40px; border: 2px solid #ffcc00; background-color: #222; color: #eee; border-radius: 3px; padding: 5px; text-align: center; }
         button {
-            font-family: 'EightBit', 'Press Start 2P', cursive;
-            padding: 12px 25px;
-            background-color: #e74c3c;
-            color: #fff;
-            border: 4px solid #8b0000;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 25px;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: all 0.1s ease-in-out;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 2px 2px #8b0000;
-        }
-        button:hover {
-            background-color: #c0392b;
-            border-color: #550000;
-        }
-        button:active {
-            transform: translateY(2px);
-            box-shadow: none;
+            padding: 12px 25px; background-color: #e74c3c; color: #fff; border: 4px solid #8b0000; border-radius: 8px; cursor: pointer;
+            margin-top: 25px; font-size: 1.1em; font-weight: bold; transition: all 0.1s ease-in-out; display: block;
+            margin-left: auto; margin-right: auto; text-shadow: 2px 2px #8b0000;
         }
         #result {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #f39c12;
-            border: 4px solid #d35400;
-            border-radius: 10px;
-            font-size: 1.2em;
-            text-align: center;
-            color: #4a230f;
-            line-height: 1.4;
-            text-shadow: 1px 1px #fff;
+            margin-top: 30px; padding: 15px; background-color: #f39c12; border: 4px solid #d35400; border-radius: 10px;
+            font-size: 1.2em; text-align: center; color: #4a230f; line-height: 1.4; text-shadow: 1px 1px #fff;
         }
-        #result span {
-            color: #e74c3c;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
+        #result span { color: #e74c3c; font-weight: bold; font-size: 1.2em; }
     </style>
 </head>
 <body>
@@ -147,14 +62,10 @@
         <p>원하는 토핑을 추가하여 나만의 피자 맛을 예상해 보세요!</p>
         <h2>CHOOSE DOUGH</h2>
         <div class="dough-selection">
-            <input type="radio" id="original" name="pizzaDough" value="original" checked>
-            <label for="original">오리지널 😉</label>
-            <input type="radio" id="thin" name="pizzaDough" value="thin">
-            <label for="thin">씬 도우 🫓</label>
-            <input type="radio" id="cheeseCrust" name="pizzaDough" value="cheeseCrust">
-            <label for="cheeseCrust">치즈 크러스트 💛</label>
-            <input type="radio" id="sweetPotatoCrust" name="pizzaDough" value="sweetPotatoCrust">
-            <label for="sweetPotatoCrust">고구마 크러스트 💜</label>
+            <input type="radio" id="original" name="pizzaDough" value="original" checked><label for="original">오리지널 😉</label>
+            <input type="radio" id="thin" name="pizzaDough" value="thin"><label for="thin">씬 도우 🫓</label>
+            <input type="radio" id="cheeseCrust" name="pizzaDough" value="cheeseCrust"><label for="cheeseCrust">치즈 크러스트 💛</label>
+            <input type="radio" id="sweetPotatoCrust" name="pizzaDough" value="sweetPotatoCrust"><label for="sweetPotatoCrust">고구마 크러스트 💜</label>
         </div>
         <h2>TOPPINGS SELECT</h2>
         <div class="topping-grid">
